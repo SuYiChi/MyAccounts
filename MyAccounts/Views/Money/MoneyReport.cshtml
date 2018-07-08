@@ -15,29 +15,32 @@
                     @Html.DisplayNameFor(model => model.Category)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.Amount)
+                    @Html.DisplayNameFor(model => model.Date)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.Date)
+                    @Html.DisplayNameFor(model => model.Amount)
                 </th>
             </tr>
 
             @foreach (var item in Model)
             {
-                <tr>
-                    <td>
-                        @(++index)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Category)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Amount)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Date)
-                    </td>
-                </tr>
+            <tr>
+                <td>
+                    @(++index)
+                </td>
+                <td>
+                    @item.Category.ToString()
+                    @*@Html.DisplayFor(modelItem => item.Category)*@
+                </td>
+                <td>
+                    @item.Date.ToString("yyyy-MM-dd")
+                    @*@Html.DisplayFor(modelItem => item.Date)*@
+                </td>
+                <td>
+                    @item.Amount.ToString("N0")
+                    @*@Html.DisplayFor(modelItem => item.Amount)*@
+                </td>
+            </tr>
             }
         </table>
     </div>
