@@ -153,6 +153,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Enum\Balance.cs" />
+    <Compile Include="Helper\EnumHelper.cs" />
     <Compile Include="Models\ViewModel\MoneyViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

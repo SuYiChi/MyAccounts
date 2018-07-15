@@ -33,7 +33,7 @@ namespace MyAccounts.Controllers
             {
                 yield return new MoneyViewModel()
                 {
-                    Category = i % 2 == 0 ? Balance.支出 : Balance.收入,
+                    Category = i % 2 == 0 ? Balance.Expend : Balance.Income,
                     Date = DateTime.Today.AddDays(-i),
                     Amount = i * 50 + 10
                 };

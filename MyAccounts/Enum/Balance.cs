@@ -1,8 +1,12 @@
-﻿namespace MyAccounts.Enum
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace MyAccounts.Enum
 {
     public enum Balance
     {
-        支出 = 1,
-        收入 = 2
+        [Display(Name = "支出")]
+        Expend = 1,
+        [Display(Name = "收入")]
+        Income = 2
     }
 }
