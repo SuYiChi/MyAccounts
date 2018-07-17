@@ -17,9 +17,17 @@ namespace MyAccounts.Controllers
         {
             this._moneyService = new MoneyService();
         }
-        // GET: Money
+
+        [HttpGet]
         public ActionResult Index()
         {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Index(MoneyViewModel model)
+        {
+            this._moneyService.InsertAccount(model);
             return View();
         }
 
