@@ -27,7 +27,10 @@ namespace MyAccounts.Controllers
         [HttpPost]
         public ActionResult Index(MoneyViewModel model)
         {
-            this._moneyService.InsertAccount(model);
+            if (ModelState.IsValid)
+            {
+                this._moneyService.InsertAccount(model);
+            }
             return View();
         }
 
