@@ -1,8 +1,20 @@
-﻿@using MyAccounts.Helper
+﻿@using MyAccounts.Enum
+@using MyAccounts.Helper
 @model IEnumerable<MyAccounts.Models.ViewModel.MoneyViewModel>
 @{
     Layout = null;
     var index = 0;
+}
+@helper InOutColor(Balance inOutType)
+{
+    if ((int)inOutType == 1)
+    {
+        <span style="color: red;">@inOutType.GetDisplayName()</span>
+    }
+    else
+    {
+        <span style="color: blue;">@inOutType.GetDisplayName()</span>
+    }
 }
 
 <div class="row">
@@ -25,23 +37,24 @@
 
             @foreach (var item in Model)
             {
-            <tr>
-                <td>
-                    @(++index)
-                </td>
-                <td>
-                    @item.Category.GetDisplayName()
-                    @*@Html.DisplayFor(modelItem => item.Category)*@
-                </td>
-                <td>
-                    @item.Date.ToString("yyyy-MM-dd")
-                    @*@Html.DisplayFor(modelItem => item.Date)*@
-                </td>
-                <td>
-                    @item.Amount.ToString("N0")
-                    @*@Html.DisplayFor(modelItem => item.Amount)*@
-                </td>
-            </tr>
+                <tr>
+                    <td>
+                        @(++index)
+                    </td>
+                    <td>
+                        @InOutColor(item.Category)
+                        @*@item.Category.GetDisplayName()*@
+                        @*@Html.DisplayFor(modelItem => item.Category)*@
+                    </td>
+                    <td>
+                        @item.Date.ToString("yyyy-MM-dd")
+                        @*@Html.DisplayFor(modelItem => item.Date)*@
+                    </td>
+                    <td>
+                        @item.Amount.ToString("N0")
+                        @*@Html.DisplayFor(modelItem => item.Amount)*@
+                    </td>
+                </tr>
             }
         </table>
     </div>
