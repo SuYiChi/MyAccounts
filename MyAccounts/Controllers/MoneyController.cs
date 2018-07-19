@@ -30,6 +30,7 @@ namespace MyAccounts.Controllers
             if (ModelState.IsValid)
             {
                 this._moneyService.InsertAccount(model);
+                ModelState.Clear();
             }
             return View();
         }
