@@ -28,9 +28,9 @@ namespace MyAccounts.Repository
             table = _context.Set<T>();
         }
 
-        public IEnumerable<T> SelectAll()
+        public IQueryable<T> SelectAll()
         {
-            return table.ToList();
+            return table;
         }
 
         public T SelectById(object id)
