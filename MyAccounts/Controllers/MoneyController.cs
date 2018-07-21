@@ -25,12 +25,13 @@ namespace MyAccounts.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Index(MoneyViewModel model)
         {
             if (ModelState.IsValid)
             {
                 this._moneyService.InsertAccount(model);
-                ModelState.Clear();
+                return RedirectToAction("Index");
             }
             return View();
         }
